@@ -13,7 +13,7 @@ export const projects = [
     status: 'live',
     href: '/profilestickr/',
     cta: 'Zum Generator',
-    image: '',
+    image: '/images/profilestickr.png',
     imageHint: 'Sticker auf dem Oberrohr, Detailaufnahme',
     featured: true,
   },
