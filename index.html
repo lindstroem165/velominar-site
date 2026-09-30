@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#141414" />
+    <title>velominar – Gebaut fürs Rad</title>
+    <meta name="description" content="Werkstatt-Journal von velominar.de: Fahrrad-Gadgets, Prototypen und der Route Profile Stickr." />
+    <meta property="og:title" content="velominar – Gebaut fürs Rad" />
+    <meta property="og:description" content="Fahrrad-Gadgets, Prototypen und der Route Profile Stickr." />
+    <meta property="og:url" content="https://velominar.de/" />
+    <script>
+      // Alte Stickr-Share-Links mit #hash auf den Generator umleiten
+      if (location.hash && !/^#(projekte|instagram)$/.test(location.hash)) {
+        location.replace('/profilestickr/' + location.search + location.hash)
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

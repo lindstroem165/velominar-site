@@ -1,0 +1,11 @@
+# velominar.de – Weiterleitungen (Apache / Ionos)
+RewriteEngine On
+
+# Alte Share-Links des Stickr zeigten auf die Root mit Query-Parametern
+# (z. B. velominar.de/?route=...). Diese landen jetzt beim Generator.
+RewriteCond %{REQUEST_URI} ^/$
+RewriteCond %{QUERY_STRING} .+
+RewriteRule ^$ /profilestickr/ [R=301,L,QSA]
+
+# /profilestickr ohne Slash → mit Slash
+RewriteRule ^profilestickr$ /profilestickr/ [R=301,L]

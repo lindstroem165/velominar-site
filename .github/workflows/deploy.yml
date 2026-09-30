@@ -1,0 +1,42 @@
+name: Deploy velominar.de (Landing Page)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      # Lädt dist/ in den Webspace-Root.
+      # WICHTIG: kein --delete, und /profilestickr/ wird ausgeschlossen,
+      # damit der Stickr-Generator nie überschrieben oder gelöscht wird.
+      - name: Upload via SFTP
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_REMOTE_DIR: ${{ secrets.SFTP_REMOTE_DIR || '/' }}
+        run: |
+          lftp -u "$SFTP_USER","$SFTP_PASSWORD" "sftp://$SFTP_HOST" -e "
+            set sftp:auto-confirm yes;
+            set net:max-retries 3;
+            mirror --reverse --verbose --parallel=4 \
+              --exclude-glob profilestickr/ \
+              dist/ $SFTP_REMOTE_DIR;
+            quit
+          "
