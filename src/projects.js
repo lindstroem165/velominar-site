@@ -23,7 +23,7 @@ export const projects = [
     teaser: 'DIY-Fahrradlicht mit Charakter statt Plastikklotz.',
     status: 'prototyp',
     href: 'https://www.instagram.com/velominar.de/',
-    image: '',
+    image: '/images/designerlampe.jpg',
     imageHint: 'Lampe am Lenker',
   },
   {
@@ -32,7 +32,7 @@ export const projects = [
     teaser: 'Farbdisplay im Querformat, gebaut für den Lenker.',
     status: 'konzept',
     href: '',
-    image: '',
+    image: '/images/bikepc.png',
     imageHint: 'Rendering oder Skizze',
   },
   {
@@ -41,7 +41,7 @@ export const projects = [
     teaser: 'Grafik für die Laufräder, passend zum Rad.',
     status: 'prototyp',
     href: 'https://www.instagram.com/velominar.de/',
-    image: '',
+    image: '/images/felgenaufkleber.png',
     imageHint: 'Felge im Detail',
   },
   {
@@ -50,7 +50,7 @@ export const projects = [
     teaser: 'Aus Lampen-Reststücken wird Deko für den Schreibtisch.',
     status: 'prototyp',
     href: 'https://www.instagram.com/velominar.de/',
-    image: '',
+    image: '/images/tischaufsteller.png',
     imageHint: 'Aufsteller auf dem Schreibtisch',
   },
 ]
