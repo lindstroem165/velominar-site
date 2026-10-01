@@ -150,9 +150,9 @@ export default function App() {
           <div className="hero__text wrap">
             <p className="eyebrow">Werkstatt-Journal</p>
             <h1>
-              Gebaut fürs Rad.
+              Ideen rund ums Rad.
               <br />
-              <span className="accent">Nicht von der Stange.</span>
+              <span className="accent">Einfach mal machen.</span>
             </h1>
             <ProfileLine className="hero__profile" />
           </div>
