@@ -21,7 +21,7 @@ export const projects = [
     id: 'designerlampe',
     title: 'Designerlampe',
     teaser: 'Die Liebe zum Rad im Wohnzimmer: Rennrad-Silhouette als Wandlampe, clean und stylisch.',
-    status: 'prototyp',
+    status: 'live',
     href: 'https://www.instagram.com/velominar.de/',
     cta: 'Auf Instagram ansehen',
     image: '/images/designerlampe.webp',
