@@ -1,9 +1,54 @@
+import { useEffect, useState } from 'react'
 import Logo from './components/Logo.jsx'
 import { projects, statusLabel, INSTAGRAM_URL } from './projects.js'
 
-// Bilder für den Instagram-Streifen: Dateien nach /public/images/insta/ legen
-// und hier eintragen. Leere Strings bleiben Platzhalter.
-const instaImages = ['', '', '', '', '', '']
+// Offizielles Instagram-Profil-Embed. Es wird erst nach Klick geladen, damit
+// ohne Einwilligung keine Daten an Meta gehen. Die Wahl merkt sich der Browser.
+const INSTA_CONSENT_KEY = 'insta-consent'
+const instaEmbed = `<blockquote class="instagram-media" data-instgrm-permalink="${INSTAGRAM_URL}" data-instgrm-version="14"></blockquote>`
+
+function readInstaConsent() {
+  try {
+    return localStorage.getItem(INSTA_CONSENT_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
+function InstaFeed() {
+  const [consent, setConsent] = useState(readInstaConsent)
+
+  useEffect(() => {
+    if (!consent) return
+    if (window.instgrm) {
+      window.instgrm.Embeds.process()
+    } else {
+      const script = document.createElement('script')
+      script.src = 'https://www.instagram.com/embed.js'
+      script.async = true
+      document.body.appendChild(script)
+    }
+  }, [consent])
+
+  function accept() {
+    try {
+      localStorage.setItem(INSTA_CONSENT_KEY, '1')
+    } catch {
+      // ohne Speicher gilt die Einwilligung nur für diesen Besuch
+    }
+    setConsent(true)
+  }
+
+  if (consent) return <div className="insta__embed" dangerouslySetInnerHTML={{ __html: instaEmbed }} />
+  return (
+    <div className="insta__consent">
+      <p>Beim Laden des Feeds werden Daten an Instagram (Meta) übertragen.</p>
+      <button type="button" className="button" onClick={accept}>
+        Instagram-Feed laden
+      </button>
+    </div>
+  )
+}
 
 function Media({ src, alt, hint, className = '', dark = false }) {
   if (src) return <img className={`media ${className}`} src={src} alt={alt} loading="lazy" />
@@ -124,11 +169,7 @@ export default function App() {
             <h2 className="section-title">@velominar.de</h2>
             <a href={INSTAGRAM_URL} target="_blank" rel="noopener">Auf Instagram folgen →</a>
           </div>
-          <a className="insta__strip" href={INSTAGRAM_URL} target="_blank" rel="noopener" aria-label="velominar auf Instagram">
-            {instaImages.map((src, i) => (
-              <Media key={i} src={src} alt="" className="insta__img" />
-            ))}
-          </a>
+          <InstaFeed />
         </section>
       </main>
 

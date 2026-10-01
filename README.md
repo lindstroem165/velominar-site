@@ -16,7 +16,7 @@ npm run dev
 - **Projekte:** Sie stehen in `src/projects.js`. Ein neues Projekt ist ein neuer Eintrag. Mit `featured: true` erscheint es groß oben.
 - **Bilder:** Lege sie nach `public/images/` und trage sie als `image: '/images/datei.jpg'` ein. Ohne Bild zeigt die Seite einen Platzhalter mit dem `imageHint`. Das Format ist 4:5 für Karten, 4:3 für Featured und quer für den Hero.
 - **Hero-Foto:** Das ist in `src/App.jsx` die `<Media dark className="hero__media" …/>`. Dort ergänzt du `src="/images/hero.jpg"`.
-- **Instagram-Streifen:** Das Array `instaImages` steht oben in `src/App.jsx`.
+- **Instagram-Feed:** `InstaFeed` in `src/App.jsx` bindet das offizielle Profil-Embed von Instagram ein. Es lädt erst nach Klick auf „Instagram-Feed laden", vorher gehen keine Daten an Meta.
 - **Logo:** `src/components/Logo.jsx` enthält das Rad als Pfad und die Wortmarke in Pfade umgewandelt. Die Farbe folgt CSS `color`.
 
 ## Deploy
