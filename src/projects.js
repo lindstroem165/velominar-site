@@ -24,7 +24,7 @@ export const projects = [
     status: 'prototyp',
     href: 'https://www.instagram.com/velominar.de/',
     cta: 'Auf Instagram ansehen',
-    image: '/images/designerlampe.jpg',
+    image: '/images/designerlampe.webp',
     imageHint: 'Lampe am Lenker',
     featured: true,
   },
@@ -44,7 +44,7 @@ export const projects = [
     teaser: 'Farbdisplay im Querformat, gebaut für den Lenker.',
     status: 'konzept',
     href: '',
-    image: '/images/bikepc.png',
+    image: '/images/bikepc.webp',
     imageHint: 'Rendering oder Skizze',
   },
   {
@@ -53,7 +53,7 @@ export const projects = [
     teaser: 'Grafik für die Laufräder, passend zum Rad.',
     status: 'prototyp',
     href: 'https://www.instagram.com/velominar.de/',
-    image: '/images/felgenaufkleber.png',
+    image: '/images/felgenaufkleber.webp',
     imageHint: 'Felge im Detail',
   },
   {
@@ -62,7 +62,7 @@ export const projects = [
     teaser: 'Aus Lampen-Reststücken wird Deko für den Schreibtisch.',
     status: 'prototyp',
     href: 'https://www.instagram.com/velominar.de/',
-    image: '/images/tischaufsteller.png',
+    image: '/images/tischaufsteller.webp',
     imageHint: 'Aufsteller auf dem Schreibtisch',
   },
 ]
