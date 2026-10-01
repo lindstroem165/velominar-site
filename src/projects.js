@@ -1,9 +1,9 @@
 // Alle Projekte der Seite. Neues Projekt = neuer Eintrag hier.
 //
-// status:  'live' | 'prototyp' | 'konzept'
+// status:  'live' | 'prototyp' | 'konzept' | 'bald'
 // image:   Pfad unter /public, z. B. '/images/lampe.jpg'. Leer lassen → Platzhalter.
 // imageHint: Was auf das Foto soll (wird im Platzhalter angezeigt).
-// featured: true → erscheint groß oben statt im Grid.
+// featured: true → erscheint groß oben statt im Grid (gedacht für drei Hauptprodukte).
 
 export const projects = [
   {
@@ -23,8 +23,20 @@ export const projects = [
     teaser: 'DIY-Fahrradlicht mit Charakter statt Plastikklotz.',
     status: 'prototyp',
     href: 'https://www.instagram.com/velominar.de/',
+    cta: 'Auf Instagram ansehen',
     image: '/images/designerlampe.jpg',
     imageHint: 'Lampe am Lenker',
+    featured: true,
+  },
+  {
+    id: 'cap',
+    title: 'Cap',
+    teaser: 'Schwarze Snapback mit gesticktem Rad-Logo.',
+    status: 'bald',
+    href: '',
+    image: '/images/cap.webp',
+    imageHint: 'Cap mit Rad-Logo',
+    featured: true,
   },
   {
     id: 'bike-computer',
@@ -59,6 +71,7 @@ export const statusLabel = {
   live: 'Live',
   prototyp: 'Prototyp',
   konzept: 'Konzept',
+  bald: 'Demnächst',
 }
 
 export const INSTAGRAM_URL = 'https://www.instagram.com/velominar.de/'

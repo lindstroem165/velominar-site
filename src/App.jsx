@@ -84,6 +84,23 @@ function ProfileLine({ className }) {
   )
 }
 
+function FeaturedCard({ p }) {
+  const external = p.href.startsWith('http')
+  return (
+    <article className="featured__item">
+      <Media src={p.image} alt={p.title} hint={p.imageHint} className="featured__media" />
+      <Status status={p.status} />
+      <h2 className="featured__title">{p.title}</h2>
+      <p className="featured__teaser">{p.teaser}</p>
+      {p.href && (
+        <a className="button" href={p.href} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>
+          {p.cta || 'Ansehen'} →
+        </a>
+      )}
+    </article>
+  )
+}
+
 function ProjectCard({ p }) {
   const inner = (
     <>
@@ -103,7 +120,7 @@ function ProjectCard({ p }) {
 }
 
 export default function App() {
-  const featured = projects.find((p) => p.featured)
+  const featured = projects.filter((p) => p.featured)
   const rest = projects.filter((p) => !p.featured)
 
   return (
@@ -141,22 +158,16 @@ export default function App() {
           </div>
         </section>
 
-        {featured && (
-          <section className="featured wrap" aria-labelledby="featured-title">
-            <Media src={featured.image} alt={featured.title} hint={featured.imageHint} className="featured__media" />
-            <div className="featured__body">
-              <Status status={featured.status} />
-              <h2 id="featured-title" className="featured__title">{featured.title}</h2>
-              <p className="featured__teaser">{featured.teaser}</p>
-              <a className="button" href={featured.href}>
-                {featured.cta || 'Ansehen'} →
-              </a>
-            </div>
+        {featured.length > 0 && (
+          <section className="featured wrap" aria-label="Hauptprodukte">
+            {featured.map((p) => (
+              <FeaturedCard key={p.id} p={p} />
+            ))}
           </section>
         )}
 
         <section id="projekte" className="projects wrap">
-          <h2 className="section-title">Alle Projekte</h2>
+          <h2 className="section-title">Weitere Projekte</h2>
           <div className="grid">
             {rest.map((p) => (
               <ProjectCard key={p.id} p={p} />
