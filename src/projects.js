@@ -31,8 +31,8 @@ export const projects = [
   {
     id: 'cap',
     title: 'Cap',
-    teaser: 'Schwarze Snapback mit gesticktem Rad-Logo.',
-    status: 'bald',
+    teaser: 'Die Velominar Cap',
+    status: 'live',
     href: '',
     image: '/images/cap.webp',
     imageHint: 'Cap mit Rad-Logo',
