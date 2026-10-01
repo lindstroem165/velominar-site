@@ -20,12 +20,12 @@ export const projects = [
   {
     id: 'designerlampe',
     title: 'Designerlampe',
-    teaser: 'DIY-Fahrradlicht mit Charakter statt Plastikklotz.',
+    teaser: 'Die Liebe zum Rad im Wohnzimmer: Rennrad-Silhouette als Wandlampe, clean und stylisch.',
     status: 'prototyp',
     href: 'https://www.instagram.com/velominar.de/',
     cta: 'Auf Instagram ansehen',
     image: '/images/designerlampe.webp',
-    imageHint: 'Lampe am Lenker',
+    imageHint: 'Lampe an der Wand',
     featured: true,
   },
   {
